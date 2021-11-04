@@ -1,0 +1,157 @@
+
+.header {
+
+  .header__logo-wrap {
+    .dark-logo {
+      display: none;
+    }
+  }
+
+
+  &__inner {
+    padding: 35px 0;
+    background: $color-primary;
+  }
+
+  .header__logo--dark {
+    display: none;
+  }
+  
+  &__form {
+    width: 600px;
+
+    label {
+      width: 100%;
+      background: #fff;
+      padding: 10px 20px;
+      border-radius:  32px;
+      position: relative;
+
+      input {
+        width: 95%;
+        border: none;
+        background: transparent;
+        outline: none;
+
+        &::placeholder {
+          font-size: 12px;
+          color: #cccbcb;
+        }
+      }
+
+      .bx-cart-alt {
+        color: $color-primary;
+      }
+
+      button {
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        background: transparent;
+        border: none;
+        transform: translateY(-50%);
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__buttons {
+    @include list-unstyled;
+
+    
+    button {
+      margin-left: 10px;
+      background: none;
+      border: none;
+
+      &:hover {
+        i {
+          color: #d45368;
+        }
+      }
+    }
+
+    i {
+      @include trans;
+      color: #fff;
+      font-size: 32px;
+      font-weight: lighter;
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer
+    }
+
+    i {
+      @include trans;
+      color: #fff;
+      font-size: 32px;
+      font-weight: lighter;
+
+    }
+  }
+}
+
+
+// responsiveness ///////////////////////////////////////////////////////////
+
+@media (max-width: 992px) {
+
+  .wrapper {
+    width: 100%;
+  }
+
+  .header__buttons {
+    button {
+      margin-left: 0;
+    }
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .light-logo {
+    display: none;
+  }
+  .dark-logo {
+    display: block !important;
+  }
+
+  .header__inner {
+    padding: 10px 0;
+    background: #fff;
+  }
+
+  .header__form {
+    label {
+      padding: 5px 20px;
+
+      background: #f4f4f4;
+    }
+  }
+
+  .header__menu {
+    display: flex;
+
+    i {
+      color: #000;
+    }
+  }
+
+  .header__buttons-wrap {
+    display: none;
+  }
+
+  .tab {
+    display: none;
+  }
+}
+
