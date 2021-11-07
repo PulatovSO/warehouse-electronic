@@ -30,7 +30,7 @@
 </head>
 <body class="wrapper-body">
 
-  <!-- header ============================-->
+  <!-- header ==================================-->
   <header class="header">
     <div class="header__inner">
       <div class="container-fluid">
@@ -48,10 +48,30 @@
             </form>
             <div class="header__buttons-wrap col-md-3">
               <ul class="header__buttons d-flex justify-content-end">
-                <li><button class="header__button"><i class='bx bx-user' ></i></button></li>
+                <li><button class="header__button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bx bx-user' ></i></button></li>
                 <li><button class="header__button"><i class='bx bx-heart' ></i></button></li>
                 <li><button class="header__button position-relative"><i class='bx bx-cart-alt' ></i><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span></button></li>
-                <li><button class="header__button"><i class="far fa-cog"></i></button></li>
+                <li>
+                  <div class="dropdown">
+                    <button class="header__button dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="far config fa-cog"></i>
+                    </button>
+                    <ul class="header__dropdown dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <li><button class="dropdown-item" type="button"><i class="far fa-cog"></i> log in</button></li>
+                      <li><button class="dropdown-item" type="button"><i class='bx bx-log-in'></i> Register account</button></li>
+                      <li><button class="dropdown-item" type="button"><i class='bx bxs-check-circle'></i> check out</button></li>
+                      <li><button class="dropdown-item" type="button"><i class='bx bxs-heart' ></i> my wishlist</button></li>
+                      <li>
+                        <h3 class="dropdown__title">currency</h3>
+                        <ul class="dropdown__list">
+                          <li><button class="dropdown__btn--active">usd</button></li>
+                          <li><button>eur</button></li>
+                          <li><button>gbp</button></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
               </ul>
             </div>
             <div class="header__menu col-xs-1 justify-content-end">
@@ -87,10 +107,78 @@
       </ul>
     </div>
 
-  </header>
-  <!-- /header ============================-->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="modal__close-wrap">
+              <button class="modal__close-btn" type="button" data-bs-dismiss="modal" aria-label="Close"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal__inner row">
+              <form class="col" action="https://echo.htmlacademy.ru" class="modal__form" method="POST">
+                <div class="modal__text">
+                  <h3 class="modal__title">Create an account</h3>
+                  <p class="modal__p">No account? Create one here:</p>
+                </div>
+                <div class="input-group">
+                  <span class="input-group-text input-icon" id="basic-addon1"><i class='input-main-icon bx bx-user'></i> <i class='bx bxs-square'></i></span>
+                  <input type="text" class="form-control" name="first-name" placeholder="First Name" aria-label="first-name" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-text input-icon" id="basic-addon1"><i class='input-main-icon bx bx-user'></i> <i class='bx bxs-square'></i></span>
+                  <input type="text" class="form-control" name="last-name" placeholder="Last Name" aria-label="lastname" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-text input-icon" id="basic-addon1"><i class='input-main-icon bx bx-envelope'></i> <i class='bx bxs-square'></i></span>
+                  <input type="email" class="form-control" name="email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-text input-icon" id="basic-addon1"><i class='input-main-icon bx bx-lock'></i> <i class='bx bxs-square'></i></span>
+                  <input type="password" class="form-control" name="passworrd" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group  checkme-wrap">
+                  <input type="checkbox" id="checkme">
+                  <label for="checkme">Sign up for our newsletter</label>
+                </div>
+                <div class="input-group checkme-wrap">
+                  <button type="submit" class="modal__btn btn btn-dark">Register</button>
+                </div>
+              </form>
+              <form class="col" action="https://echo.htmlacademy.ru" class="modal__form method="POST">
+                <div class="modal__text">
+                  <h3 class="modal__title">Login</h3>
+                  <p class="modal__p">Insert your account information:</p>
+                </div>
+                <div class="input-group input-group__right">
+                  <span class="input-group-text input-icon" id="basic-addon1"><i class='input-main-icon bx bx-envelope'></i> <i class='bx bxs-square'></i></span>
+                  <input type="email" class="form-control" name="email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group input-group__right input-password">
+                  <span class="input-group-text input-icon" id="basic-addon1"><i class='input-main-icon bx bx-lock'></i> <i class='bx bxs-square'></i></span>
+                  <input type="password" class="form-control" name="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                  <button type="button" class="eye" onclick="showPassword()">
+                    <i id="eye-show" class='bx bxs-show'></i> 
+                    <i id="eye-hide" class='bx bxs-hide' ></i>
+                  </button type="button">
+                </div>
+                <div class="input-group2 password-check">
+                  <p><i class='bx bxs-envelope' ></i> Forgot your <span><a href="#">Password ?</a></span></p>
+                </div>
+                <div class="input-group password-check">
+                  <button type="submit" class="modal__btn btn btn-dark">Login</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- hero ============================-->
+  </header>
+  <!-- /header =================================-->
+
+  <!-- hero ====================================-->
   <section class="hero">
     <div class="hero__wrap">
       <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -157,18 +245,1086 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      </div>
+    </div>
   </section>
-  <!-- /hero ============================-->
+  <!-- /hero ===================================-->
+
+  <!-- top products ============================-->
+  <section class="top">
+    <div class="top__products pt-4">
+      <div class="row">
+        <div class="top__image-wrap col-sm-12 col-md-3"> <a href="#"><img class="top__image img-fluid" src="img/apple-watch.jpg" alt="product" class="top__image"></a></div>
+        <div class="top__image-wrap col-sm-12 col-md-6"><a href="#"><img class="top__image" src="img/phone.jpg" alt="product" class="top__image"></a></div>
+        <div class="top__image-wrap col-sm-12 col-md-3"><a href="#"><img class="top__image" src="img/homepod.jpg" alt="product" class="top__image"></a></div>
+      </div>
+    </div>
+    <div class="top__cards">
+      <div class="fluid-container">
+        <div class="top__cards-wrap wrapper">
+          <div class="row">
+            <div class="top__card col-sm-12 col-md-4">
+              <img src="img/globe.png" alt="card-img" class="top__card-img">
+              <h3 class="top__card-title mt-3 mb-2">WORLDWIDE DELIVERY</h3>
+              <p class="top__card-subtitle">
+                We work with the biggest delivery networks. It <br>
+                doesn't matter where in the world you are.
+              </p>
+            </div>
+            <div class="top__card col-sm-12 col-md-4">
+              <img src="img/shipping.png" alt="card-img" class="top__card-img">
+              <h3 class="top__card-title mt-3 mb-2">FREE SHIPPING</h3>
+              <p class="top__card-subtitle">
+                Stop wondering about shipping costs, what <br>
+                you see is what you pay.
+              </p>
+            </div>
+            <div class="top__card col-sm-12 col-md-4">
+              <img src="img/wallet.png" alt="card-img" class="top__card-img">
+              <h3 class="top__card-title mt-3 mb-2">MONEY BACK GUARANTEE</h3>
+              <p class="top__card-subtitle">
+                Got a problem with the product? Don't worry, <br>
+                we have a 30 day money back guarantee.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /top products ===========================-->
+
+  <!-- products ================================-->
+  <section class="products">
+    <div class="products__head">
+      <div class="wrapper">
+        <h2 class="products__title">new products</h2>
+        <p class="products__paragraph">
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis <br class="break-one"> praesentium. <br class="break-two">
+          At Nulla id tincidunt ut sed semper vel Lorem condimentum ornare.
+        </p>
+        <div class="products__tab tabs">
+          <ul class="tabs__list">
+            <li class="tabs__item"><button class="tabs__btn--active" type="button">all products</button></li>
+            <li class="tabs__item"><button type="button">smartphone</button></li>
+            <li class="tabs__item"><button type="button">tablet</button></li>
+            <li class="tabs__item"><button type="button">audio</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="products__body">
+      <div class="products__wrap wrapper">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button class="slide-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button class="slide-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button class="slide-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner product-slide">
+            <div class="carousel-item active">
+              <div class="products__grid row">
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch1.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch1-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00</p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch2.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch2-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00</p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch3.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch3-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00</p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch4.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch4-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00 <span class="product__discount">$658.00</span></p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch5.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch3-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00 <span class="product__discount">$658.00</span></p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch6.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch6-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00 <span class="product__discount">$658.00</span></p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="products__grid row">
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch1.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch1-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00</p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch2.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch2-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00</p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch3.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch3-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00</p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch4.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch4-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00 <span class="product__discount">$658.00</span></p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch5.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch3-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00 <span class="product__discount">$658.00</span></p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch6.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch6-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00 <span class="product__discount">$658.00</span></p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="products__grid row">
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch1.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch1-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00</p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch2.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch2-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00</p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch3.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch3-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00</p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch4.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch4-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00 <span class="product__discount">$658.00</span></p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch5.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch3-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00 <span class="product__discount">$658.00</span></p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/watch6.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/watch6-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                  </div>
+                  <div class="product__inner">
+                    <div class="product__body">
+                      <h3 class="product__title">Rimond balo stud cum</h3>
+                      <ul class="product__ratings">
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                        <li><a href="#"><i class='bx bx-star'></i></a></li>
+                      </ul>
+                      <p class="product__price">$223.00 <span class="product__discount">$658.00</span></p>
+                      <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- /products ===============================-->
+
+  <!-- gallery =================================-->
+  <section class="gallery">
+    <div class="gallery__wrap">
+      <img class="gallery__image mb-3" src="img/vinova.jpg" alt="vinova">
+    </div>
+  </section>
+  <!-- /gallery ================================-->
+
+  <!-- popular =================================-->
+  <section class="popular">
+    <div class="popular__wrap">
+      <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <div class="wrapper">
+              <div class="row slick-wrapper">
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/phone1.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/phone1-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                    <ul class="product__date">
+                      <li class="product__date-item mb-3">
+                        <span class="digit">412</span>
+                        <p class="date-p mt-1">days</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">03</span>
+                        <p class="date-p mt-1">hours</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">58</span>
+                        <p class="date-p mt-1">mins</p>
+                      </li>
+                      <li class="product__date-item">
+                        <span class="digit">17</span>
+                        <p class="date-p mt-1">secs</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="product__body">
+                    <h3 class="product__title">Rimond balo stud cum</h3>
+                    <ul class="product__ratings">
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                    </ul>
+                    <p class="product__price">$223.00 <span class="product__discount">$550.00</span></p>
+                    <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/phone2.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/phone2-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                    <ul class="product__date">
+                      <li class="product__date-item mb-3">
+                        <span class="digit">412</span>
+                        <p class="date-p mt-1">days</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">03</span>
+                        <p class="date-p mt-1">hours</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">58</span>
+                        <p class="date-p mt-1">mins</p>
+                      </li>
+                      <li class="product__date-item">
+                        <span class="digit">17</span>
+                        <p class="date-p mt-1">secs</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="product__body">
+                    <h3 class="product__title">Rimond balo stud cum</h3>
+                    <ul class="product__ratings">
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                    </ul>
+                    <p class="product__price">$223.00 <span class="product__discount">$550.00</span></p>
+                    <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/phone3.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/phone3-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                    <ul class="product__date">
+                      <li class="product__date-item mb-3">
+                        <span class="digit">412</span>
+                        <p class="date-p mt-1">days</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">03</span>
+                        <p class="date-p mt-1">hours</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">58</span>
+                        <p class="date-p mt-1">mins</p>
+                      </li>
+                      <li class="product__date-item">
+                        <span class="digit">17</span>
+                        <p class="date-p mt-1">secs</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="product__body">
+                    <h3 class="product__title">Rimond balo stud cum</h3>
+                    <ul class="product__ratings">
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                    </ul>
+                    <p class="product__price">$223.00 <span class="product__discount">$550.00</span></p>
+                    <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <div class="wrapper">
+              <div class="row slick-wrapper">
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/phone1.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/phone1-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                    <ul class="product__date">
+                      <li class="product__date-item mb-3">
+                        <span class="digit">412</span>
+                        <p class="date-p mt-1">days</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">03</span>
+                        <p class="date-p mt-1">hours</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">58</span>
+                        <p class="date-p mt-1">mins</p>
+                      </li>
+                      <li class="product__date-item">
+                        <span class="digit">17</span>
+                        <p class="date-p mt-1">secs</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="product__body">
+                    <h3 class="product__title">Rimond balo stud cum</h3>
+                    <ul class="product__ratings">
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                    </ul>
+                    <p class="product__price">$223.00 <span class="product__discount">$550.00</span></p>
+                    <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/phone2.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/phone2-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                    <ul class="product__date">
+                      <li class="product__date-item mb-3">
+                        <span class="digit">412</span>
+                        <p class="date-p mt-1">days</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">03</span>
+                        <p class="date-p mt-1">hours</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">58</span>
+                        <p class="date-p mt-1">mins</p>
+                      </li>
+                      <li class="product__date-item">
+                        <span class="digit">17</span>
+                        <p class="date-p mt-1">secs</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="product__body">
+                    <h3 class="product__title">Rimond balo stud cum</h3>
+                    <ul class="product__ratings">
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                    </ul>
+                    <p class="product__price">$223.00 <span class="product__discount">$550.00</span></p>
+                    <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/phone3.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/phone3-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                    <ul class="product__date">
+                      <li class="product__date-item mb-3">
+                        <span class="digit">412</span>
+                        <p class="date-p mt-1">days</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">03</span>
+                        <p class="date-p mt-1">hours</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">58</span>
+                        <p class="date-p mt-1">mins</p>
+                      </li>
+                      <li class="product__date-item">
+                        <span class="digit">17</span>
+                        <p class="date-p mt-1">secs</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="product__body">
+                    <h3 class="product__title">Rimond balo stud cum</h3>
+                    <ul class="product__ratings">
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                    </ul>
+                    <p class="product__price">$223.00 <span class="product__discount">$550.00</span></p>
+                    <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="wrapper">
+              <div class="row slick-wrapper">
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/phone1.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/phone1-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                    <ul class="product__date">
+                      <li class="product__date-item mb-3">
+                        <span class="digit">412</span>
+                        <p class="date-p mt-1">days</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">03</span>
+                        <p class="date-p mt-1">hours</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">58</span>
+                        <p class="date-p mt-1">mins</p>
+                      </li>
+                      <li class="product__date-item">
+                        <span class="digit">17</span>
+                        <p class="date-p mt-1">secs</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="product__body">
+                    <h3 class="product__title">Rimond balo stud cum</h3>
+                    <ul class="product__ratings">
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                    </ul>
+                    <p class="product__price">$223.00 <span class="product__discount">$550.00</span></p>
+                    <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/phone2.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/phone2-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                    <ul class="product__date">
+                      <li class="product__date-item mb-3">
+                        <span class="digit">412</span>
+                        <p class="date-p mt-1">days</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">03</span>
+                        <p class="date-p mt-1">hours</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">58</span>
+                        <p class="date-p mt-1">mins</p>
+                      </li>
+                      <li class="product__date-item">
+                        <span class="digit">17</span>
+                        <p class="date-p mt-1">secs</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="product__body">
+                    <h3 class="product__title">Rimond balo stud cum</h3>
+                    <ul class="product__ratings">
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                    </ul>
+                    <p class="product__price">$223.00 <span class="product__discount">$550.00</span></p>
+                    <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                  </div>
+                </div>
+                <div class="products__item product col-md-4">
+                  <div class="product__image">
+                    <a class="product__link" href="#">
+                      <img src="img/products/phone3.jpg" alt="product">
+                      <img class="product__img-hover" src="img/products/phone3-hover.jpg" alt="product">
+                    </a>
+                    <ul class="product__icons">
+                      <li class="product__icon icon-one"><button><i class='bx bx-heart'></i></button></li>
+                      <li class="product__icon icon-two"><button><i class='bx bx-search'></i></button></li>
+                    </ul>
+                    <ul class="product__date">
+                      <li class="product__date-item mb-3">
+                        <span class="digit">412</span>
+                        <p class="date-p mt-1">days</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">03</span>
+                        <p class="date-p mt-1">hours</p>
+                      </li>
+                      <li class="product__date-item mb-3">
+                        <span class="digit">58</span>
+                        <p class="date-p mt-1">mins</p>
+                      </li>
+                      <li class="product__date-item">
+                        <span class="digit">17</span>
+                        <p class="date-p mt-1">secs</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="product__body">
+                    <h3 class="product__title">Rimond balo stud cum</h3>
+                    <ul class="product__ratings">
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                      <li><a href="#"><i class='bx bxs-star'></i></a></li>
+                    </ul>
+                    <p class="product__price">$223.00 <span class="product__discount">$550.00</span></p>
+                    <button type="button" class="product__button"><i class='bx bx-check' ></i> select options</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- newsletter ================================-->
+  <section class="newsletter mt-5">
+    <div class="newsletter__wrap">
+      <div class="wrapper">
+        <div class="row align-items-center">
+          <div class="newsletter__list col-xs-12 col-sm-12 col-md-4">
+            <ul class="newsletter__icons new-icons">
+              <li class="new-icons__item me-3"><a href="https://facebook.com" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+              <li class="new-icons__item me-3"><a href="https://twitter.com" target="_blank"><i class='bx bxl-twitter' ></i></a></li>
+              <li class="new-icons__item me-3"><a href="https://pinterest.com" target="_blank"><i class='bx bxl-pinterest' ></i></a></li>
+              <li class="new-icons__item me-3"><a href="https://vimeo.com" target="_blank"><i class='bx bxl-vimeo' ></i></a></li>
+              <li class="new-icons__item"><a href="https://instagram.com" target="_blank"><i class='bx bxl-instagram' ></i></a></li>
+            </ul>
+          </div>
+          <div class="newsletter__text col-xs-12 col-sm-4">
+            <h2 class="newsletter__title">newsletter</h2>
+          </div>
+          <div class="newsletter__form col-xs-12 col-sm-8 col-md-4">
+            <form class="newsletter__subscribe" action="https://echo.htmlacademy.ru" method="POST">
+              <div class="subscribe__block">
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <button class="subscribe__button" type="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /newsletter ================================-->
+
+  <!-- footer =====================================-->
+  <footer class="footer mt-5">
+    <div class="footer__wrap wrapper">
+      <div class="row">
+        <div class="footer__col col-sm-6 col-md-3">
+          <ul class="footer__list flist">
+            <li class="flist__item flist__title">customer service</li>
+            <li class="flist__item"><a href="#">Contact us</a></li>
+            <li class="flist__item"><a href="#">Help and advice</a></li>
+            <li class="flist__item"><a href="#">Shipping & Returns</a></li>
+            <li class="flist__item"><a href="#">Terms and conditions</a></li>
+            <li class="flist__item"><a href="#">Refund Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer__col col-sm-6 col-md-3">
+          <ul class="footer__list flist">
+            <li class="flist__item flist__title">information</li>
+            <li class="flist__item"><a href="#">About Us</a></li>
+            <li class="flist__item"><a href="#">Testimonials</a></li>
+            <li class="flist__item"><a href="#">My Account</a></li>
+            <li class="flist__item"><a href="#">Payments & Returns</a></li>
+            <li class="flist__item"><a href="#">View Catalogues Online</a></li>
+          </ul>
+        </div>
+        <div class="footer__col col-sm-6 col-md-3">
+          <ul class="footer__list flist">
+            <li class="flist__item flist__title">about us</li>
+            <li class="flist__item"><a href="#">Who we are?</a></li>
+            <li class="flist__item"><a href="#">Corporate Responsibility</a></li>
+            <li class="flist__item"><a href="#">California Laws</a></li>
+            <li class="flist__item"><a href="#">Careers</a></li>
+            <li class="flist__item"><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer__col col-sm-6 col-md-3">
+          <ul class="footer__list flist">
+            <li class="flist__item flist__title">contact us</li>
+            <li class="flist__item"><a href="#"><i class='bx bx-phone-call'></i> (+612) 2531 5600</a></li>
+            <li class="flist__item"><a href="#"><i class='bx bx-envelope'></i> vinova@gmail.com</a></li>
+            <li class="flist__item"><a href="#"><i class='bx bx-location-plus'></i> PO Box 1622 Visaosang Street West</a></li>
+            <li class="flist__item"><a href="#"><i class='bx bx-time'></i> Opening Hours : 8.00AM - 21.00AM</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom fbottom mt-5">
+      <div class="wrapper">
+        <div class="row">
+          <div class="fbottom__col col-xs-12 col-md-6">
+            <p class="fbottom__copyright">Copyright © 2020 Vinovathemes. All rights reserved.</p>
+          </div>
+          <div class="fbottom__col image-col col-xs-12 col-md-6 d-flex justify-content-end col">
+            <img  src="img/payment.png" alt="payment">
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- /footer ====================================-->
 
   <script src="js/main.js"></script>
-
-  <br><br><br><br><br>
-  <br><br><br><br><br>
-  <br><br><br><br><br>
-  <br><br><br><br><br>
-  <br><br><br><br><br>
-  <br><br><br><br><br>
-  <br><br><br><br><br>
 </body>
 </html>

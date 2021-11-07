@@ -1,0 +1,18 @@
+
+
+.top__image-wrap {
+  @include card-hover;
+}
+
+
+@media (max-width: 768px) {
+
+  .top__image-wrap {
+    margin-bottom: 20px;
+
+    img {
+      width: 100%;
+    }
+  }
+  
+}

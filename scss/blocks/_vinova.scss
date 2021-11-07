@@ -1,0 +1,8 @@
+
+.gallery {
+  margin-top: 200px
+}
+
+.gallery__wrap {
+  @include card-hover;
+}

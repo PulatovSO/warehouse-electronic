@@ -60,7 +60,7 @@
 
     
     button {
-      margin-left: 10px;
+      margin-left: 12px;
       background: none;
       border: none;
 
@@ -74,8 +74,14 @@
     i {
       @include trans;
       color: #fff;
-      font-size: 32px;
+      font-size: 30px;
       font-weight: lighter;
+    }
+
+    .config {
+      position: relative;
+      top: 2px;
+      font-size: 25px;
     }
   }
 

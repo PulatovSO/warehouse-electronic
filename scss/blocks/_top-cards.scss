@@ -1,0 +1,64 @@
+
+
+.top {
+
+  &__cards {
+    padding-top: 63px;
+    padding-bottom: 75px;
+  }
+
+  &__card {
+    text-align: center;
+  }
+
+  &__card-title {
+    margin-top: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #222;
+    text-transform: uppercase;
+  }
+
+  &__card-subtitle {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    font-size: 13px;
+    font-weight: 400;
+    color: #666;
+
+    br {
+      display: none;
+    }
+  }
+}
+
+
+// responsiveness ==========================================
+
+@media (max-width: 992px) {
+  .top__card-subtitle {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .top__card-title {
+    font-size: 0.8rem;
+  }
+
+  .top__card-subtitle {
+    br {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 382px) {
+  .top__card-subtitle {
+    font-size: 10px;
+  }
+}
+
+
